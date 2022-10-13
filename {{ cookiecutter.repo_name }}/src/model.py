@@ -1,11 +1,11 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target, SourceOfSelf
+from makeit import Target, Dependency, generate_unique_target, SourceOfSelf, DataclassTask
 
 import pandas
 
 
-@dataclasses.dataclass
+@dataclasses.dataclass(DataclassTask)
 class Train:
     """ Structure of a sample training step """
 

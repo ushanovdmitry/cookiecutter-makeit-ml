@@ -1,12 +1,12 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target, SourceOfSelf
+from makeit import Target, Dependency, generate_unique_target, SourceOfSelf, DataclassTask
 
 import pandas
 
 
 @dataclasses.dataclass
-class FeatureEngineering:
+class FeatureEngineering(DataclassTask):
     """ Structure of a sample feature engineering step """
 
     raw_data: Path | Dependency

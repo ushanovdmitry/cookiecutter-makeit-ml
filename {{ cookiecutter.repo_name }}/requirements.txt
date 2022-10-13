@@ -1,5 +1,5 @@
 # external requirements
-makeit
+makeit>=2.10.5
 python-dotenv>=0.5.1
 
 loguru

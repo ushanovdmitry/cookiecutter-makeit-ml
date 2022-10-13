@@ -1,12 +1,12 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target, SourceOfSelf
+from makeit import Target, Dependency, generate_unique_target, SourceOfSelf, DataclassTask
 
 import pandas
 
 
 @dataclasses.dataclass
-class LoadRawTrainData:
+class LoadRawTrainData(DataclassTask):
     """ Example of a data loader """
 
     # parameters
@@ -22,7 +22,7 @@ class LoadRawTrainData:
     _: SourceOfSelf = None
 
     def __post_init__(self):
-        # it is recommended to make a file path using generate_unique_target: this task is parametrizes.
+        # it is recommended to make a file path using generate_unique_target: this task is parametrized.
         self.raw_data = Path('data') / 'raw' / generate_unique_target(self, ".csv")
 
     def execute(self):
