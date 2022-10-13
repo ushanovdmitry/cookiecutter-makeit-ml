@@ -34,8 +34,8 @@ Project Organization
     │   │
     │   ├── features.py    <- Scripts to turn raw data into features for modeling
     │   │
-    │   ├── model.py       <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
+    │   └── model.py       <- Scripts to train models and then use trained models to make predictions
+    │
     │
     └── workflow.py        <- The top-level python file combining steps from src/
 
