@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target
+from makeit import Target, Dependency, generate_unique_target, SourceOfSelf
 
 import pandas
 
@@ -15,6 +15,8 @@ class Train:
     # parameters
     alpha: float = 1.0
     beta: float = 2.0
+
+    _: SourceOfSelf = None
 
     def __post_init__(self):
         self.model_path = Path('models') / generate_unique_target(self, ".bin")

@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target
+from makeit import Target, Dependency, generate_unique_target, SourceOfSelf
 
 import pandas
 
@@ -9,15 +9,20 @@ import pandas
 class LoadRawTrainData:
     """ Example of a data loader """
 
+    # parameters
     sql: str  # sql statement
     sql_param_1: int
     sql_param_2: str
 
-    raw_data: Path | Target = None  # mark this as a target, here we will write the results
+    # target file
+    raw_data: Path | Target = None  # mark this as a target
 
     connection_string = None  # this is nor a parameter not an artifact -- ignored by makeit.
 
+    _: SourceOfSelf = None
+
     def __post_init__(self):
+        # it is recommended to make a file path using generate_unique_target: this task is parametrizes.
         self.raw_data = Path('data') / 'raw' / generate_unique_target(self, ".csv")
 
     def execute(self):

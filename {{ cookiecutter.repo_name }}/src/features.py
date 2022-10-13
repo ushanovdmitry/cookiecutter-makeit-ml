@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target
+from makeit import Target, Dependency, generate_unique_target, SourceOfSelf
 
 import pandas
 
@@ -11,6 +11,8 @@ class FeatureEngineering:
 
     raw_data: Path | Dependency
     processed_data: Path | Target = None
+
+    _: SourceOfSelf = None
 
     def __post_init__(self):
         self.processed_data = Path('data') / 'processed' / generate_unique_target(self, ".csv")
