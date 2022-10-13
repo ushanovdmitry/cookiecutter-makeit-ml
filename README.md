@@ -23,7 +23,7 @@ $ conda install cookiecutter
 ### To start a new project, run:
 ------------
 
-    cookiecutter -c v1 https://github.com/ushanovdmitry/cookiecutter-makeit-ml
+    cookiecutter https://github.com/ushanovdmitry/cookiecutter-makeit-ml
 
 ### The resulting directory structure
 ------------
