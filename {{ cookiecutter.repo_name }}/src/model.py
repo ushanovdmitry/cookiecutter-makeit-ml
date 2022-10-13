@@ -1,12 +1,12 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target, SourceOfSelf, DataclassTask
+from makeit import Target, Dependency, SourceOfSelf, DataclassTask
 
 import pandas
 
 
-@dataclasses.dataclass(DataclassTask)
-class Train:
+@dataclasses.dataclass
+class Train(DataclassTask):
     """ Structure of a sample training step """
 
     processed_data: Path | Dependency
@@ -19,7 +19,7 @@ class Train:
     _: SourceOfSelf = None
 
     def __post_init__(self):
-        self.model_path = Path('models') / generate_unique_target(self, ".bin")
+        self.model_path = Path('models') / self.md5(".bin")
 
     def execute(self):
         df = pandas.read_csv(self.processed_data)

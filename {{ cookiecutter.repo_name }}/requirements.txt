@@ -1,5 +1,5 @@
 # Main packages
-makeit>=2.10.5
+makeit>=2.10.6
 
 # Helpful packages
 pandas

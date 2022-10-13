@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, generate_unique_target, SourceOfSelf, DataclassTask
+from makeit import Target, Dependency, SourceOfSelf, DataclassTask
 
 import pandas
 
@@ -15,7 +15,7 @@ class FeatureEngineering(DataclassTask):
     _: SourceOfSelf = None
 
     def __post_init__(self):
-        self.processed_data = Path('data') / 'processed' / generate_unique_target(self, ".csv")
+        self.processed_data = Path('data') / 'processed' / self.md5(".csv")
 
     def execute(self):
         df = pandas.read_csv(self.raw_data)
