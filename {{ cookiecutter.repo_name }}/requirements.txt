@@ -1,0 +1,9 @@
+# external requirements
+makeit
+python-dotenv>=0.5.1
+
+loguru
+
+# common imports
+pandas
+sklearn
