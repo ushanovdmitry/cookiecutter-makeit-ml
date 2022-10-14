@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, SourceOfSelf, DataclassTask
+from makeit import Target, Dependency, DataclassTask
 
 import pandas
 
@@ -11,8 +11,6 @@ class FeatureEngineering(DataclassTask):
 
     raw_data: Path | Dependency
     processed_data: Path | Target = None
-
-    _: SourceOfSelf = None
 
     def __post_init__(self):
         self.processed_data = Path('data') / 'processed' / self.md5(".csv")

@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, SourceOfSelf, DataclassTask
+from makeit import Target, Dependency, DataclassTask
 
 import pandas
 
@@ -18,8 +18,6 @@ class LoadRawTrainData(DataclassTask):
     raw_data: Path | Target = None  # mark this as a target
 
     connection_string = None  # this is nor a parameter not an artifact -- ignored by makeit.
-
-    _: SourceOfSelf = None
 
     def __post_init__(self):
         # it is recommended to make a file path using generate_unique_target: this task is parametrized.

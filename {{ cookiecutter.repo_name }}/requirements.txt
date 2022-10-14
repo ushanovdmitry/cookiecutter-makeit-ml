@@ -1,6 +1,7 @@
 # Main packages
-makeit>=2.10.6
+makeit>=2.10.7
 
 # Helpful packages
-pandas
-sklearn
+
+# pandas
+# sklearn

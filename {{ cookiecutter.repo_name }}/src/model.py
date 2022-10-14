@@ -1,6 +1,6 @@
 import dataclasses
 from pathlib import Path
-from makeit import Target, Dependency, SourceOfSelf, DataclassTask
+from makeit import Target, Dependency, DataclassTask
 
 import pandas
 
@@ -15,8 +15,6 @@ class Train(DataclassTask):
     # parameters
     alpha: float = 1.0
     beta: float = 2.0
-
-    _: SourceOfSelf = None
 
     def __post_init__(self):
         self.model_path = Path('models') / self.md5(".bin")
